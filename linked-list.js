@@ -52,6 +52,24 @@ class LinkedList {
     }
     this.size++;
   }
+
+  removeFrom(location) {
+    if (location < 0 || location >= this.size) {
+      return;
+    } else if (location == 0) {
+      this.head = this.head.next;
+    } else {
+      let at = 0;
+      let current = this.head;
+      let prev = this.head;
+      while (at < location) {
+        prev = current;
+        current = current.next;
+        at++;
+      }
+      prev.next = current.next;
+    }
+  }
 }
 
 // functions to be implemented
@@ -68,6 +86,6 @@ class LinkedList {
 let linkObj = new LinkedList();
 linkObj.add(new Nodes(10));
 linkObj.add(new Nodes(20));
-console.log(linkObj.head);
 linkObj.insertAt(new Nodes(5), 0);
+linkObj.removeFrom(0);
 console.log(linkObj.head);
