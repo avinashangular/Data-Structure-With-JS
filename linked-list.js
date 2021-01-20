@@ -1,4 +1,13 @@
 class Nodes {
+  /**
+   * Create an Instance of Node.
+   *
+   * @param {} element Element to be added.
+   *
+   * @returns {Nodes} Return Node instance.
+   * 
+   * @author Avinash Kumar
+   */
   constructor(element) {
     this.element = element;
     this.next = null;
@@ -6,6 +15,13 @@ class Nodes {
 }
 
 class LinkedList {
+  /**
+   * Create an instance of Linked List.
+   *
+   * @returns {LinkedList} Returns LinkedList Instance.
+   * 
+   * @author Avinash Kumar
+   */
   constructor() {
     this.head = null;
     this.size = 0;
@@ -136,6 +152,13 @@ class LinkedList {
     return this.size == 0;
   }
 
+  /**
+   * Get size of Linked List
+   * 
+   * @returns {number} Returns number.
+   * 
+   * @author Avinash Kumar
+   */
   get size_of_list() {
     return this.size;
   }
@@ -164,7 +187,7 @@ class LinkedList {
    * @param {} element Element that need to searched.
    *
    * @returns {number} Returns index of specified element.
-   * 
+   *
    * @author Avinash Kumar
    */
   indexOf(element) {
@@ -183,5 +206,3 @@ class LinkedList {
   }
 }
 
-
-let obj = new LinkedList();
