@@ -53,16 +53,16 @@ class LinkedList {
     this.size++;
   }
 
-  removeFrom(location) {
-    if (location < 0 || location > this.size) {
+  removeFrom(index) {
+    if (index < 0 || index > this.size) {
       return;
-    } else if (location == 0) {
+    } else if (index == 0) {
       this.head = this.head.next;
     } else {
       let at = 0;
       let current = this.head;
       let prev = this.head;
-      while (at < location) {
+      while (at < index) {
         prev = current;
         current = current.next;
         at++;
@@ -74,7 +74,7 @@ class LinkedList {
   removeElement(element) {
     let current = this.head;
     let prev = null;
-    
+
     while (current != null) {
       if (current.element === element) {
         if (prev == null) {
@@ -89,32 +89,40 @@ class LinkedList {
       current = current.next;
     }
     return -1;
-    //  prev.next = current.next;
   }
+
+  isEmpty() {
+    return this.size == 0;
+  }
+
+  get size_of_list() {
+    return this.size;
+  }
+
+  printList(){
+    let list = [];
+    let current = this.head;
+    while(current != null){      
+      list.push(current.element);
+      current = current.next;
+    }
+    
+    return list;
+  }
+
+  indexOf(element){
+    let index = -1;
+    let currentIndex = 0;
+    let current = this.head;
+    while(current != null){      
+      if(current.element == element) {
+        index = currentIndex;
+        break;
+      }
+      currentIndex++;
+      current = current.next;
+    }
+    return index;
+  }
+
 }
-
-// functions to be implemented
-// add(element)
-// insertAt(element, location)
-// removeFrom(location)
-// removeElement(element)
-
-// Helper Methods
-// isEmpty
-// size_Of_List
-// PrintList
-
-let linkObj = new LinkedList();
-linkObj.add(10);
-linkObj.add(20);
-linkObj.add(30);
-linkObj.add(40);
-linkObj.add(50);
-
-linkObj.insertAt(15,1);
-linkObj.insertAt(5,0)
-linkObj.insertAt(60,7);
-
-linkObj.removeElement(60);
-
-console.log(linkObj.head);
