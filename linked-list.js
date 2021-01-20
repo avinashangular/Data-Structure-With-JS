@@ -13,22 +13,21 @@ class LinkedList {
 
   add(element) {
     let node = new Nodes(element);
-    let current = null;
+
     if (this.head == null) {
       this.head = node;
     } else {
-      this.current = this.head;
-
-      while (this.current.next) {
-        this.current = this.current.next;
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
       }
-
-      this.current.next = node;
+      current.next = node;
     }
     this.size++;
   }
 
   insertAt(element, location) {
+    let node = new Nodes(element);
     if (location < 0 || location > this.size) {
       return;
     } else {
@@ -37,8 +36,9 @@ class LinkedList {
       let previous = this.head;
 
       if (x == location) {
-        element.next = current;
-        this.head = element;
+        node.next = current;
+        this.head = node;
+        this.size++;
         return;
       }
 
@@ -47,14 +47,14 @@ class LinkedList {
         current = current.next;
         x++;
       }
-      element.next = current;
-      previous.next = element;
+      node.next = current;
+      previous.next = node;
     }
     this.size++;
   }
 
   removeFrom(location) {
-    if (location < 0 || location >= this.size) {
+    if (location < 0 || location > this.size) {
       return;
     } else if (location == 0) {
       this.head = this.head.next;
@@ -70,6 +70,27 @@ class LinkedList {
       prev.next = current.next;
     }
   }
+
+  removeElement(element) {
+    let current = this.head;
+    let prev = null;
+    
+    while (current != null) {
+      if (current.element === element) {
+        if (prev == null) {
+          this.head = current.next;
+        } else {
+          prev.next = current.next;
+        }
+        this.size--;
+        return current.element;
+      }
+      prev = current;
+      current = current.next;
+    }
+    return -1;
+    //  prev.next = current.next;
+  }
 }
 
 // functions to be implemented
@@ -84,8 +105,16 @@ class LinkedList {
 // PrintList
 
 let linkObj = new LinkedList();
-linkObj.add(new Nodes(10));
-linkObj.add(new Nodes(20));
-linkObj.insertAt(new Nodes(5), 0);
-linkObj.removeFrom(0);
+linkObj.add(10);
+linkObj.add(20);
+linkObj.add(30);
+linkObj.add(40);
+linkObj.add(50);
+
+linkObj.insertAt(15,1);
+linkObj.insertAt(5,0)
+linkObj.insertAt(60,7);
+
+linkObj.removeElement(60);
+
 console.log(linkObj.head);
