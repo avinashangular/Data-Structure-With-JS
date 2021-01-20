@@ -11,6 +11,13 @@ class LinkedList {
     this.size = 0;
   }
 
+  /**
+   * Used to Add element to linked list
+   *
+   * @param {any} element The element to be added.
+   *
+   * @author Avinash Kumar
+   */
   add(element) {
     let node = new Nodes(element);
 
@@ -26,23 +33,31 @@ class LinkedList {
     this.size++;
   }
 
-  insertAt(element, location) {
+  /**
+   * Used to insert element at specific position
+   *
+   * @param {} element The element to be added.
+   * @param {number} index Index to add element.
+   *
+   * @returns {void} Does not return anything.
+   */
+  insertAt(element, index) {
     let node = new Nodes(element);
-    if (location < 0 || location > this.size) {
+    if (index < 0 || index > this.size) {
       return;
     } else {
       let x = 0;
       let current = this.head;
       let previous = this.head;
 
-      if (x == location) {
+      if (x == index) {
         node.next = current;
         this.head = node;
         this.size++;
         return;
       }
 
-      while (x < location) {
+      while (x < index) {
         previous = current;
         current = current.next;
         x++;
@@ -53,6 +68,14 @@ class LinkedList {
     this.size++;
   }
 
+  /**
+   * Used to remove element from specified index.
+   *
+   * @param {number} index Index position to delete element.
+   *
+   * @author Avinash Kumar
+   *
+   */
   removeFrom(index) {
     if (index < 0 || index > this.size) {
       return;
@@ -71,6 +94,16 @@ class LinkedList {
     }
   }
 
+  /**
+   * Used to remove element from List.
+   *
+   * @param {} element Element to be removed.
+   *
+   * @returns Returns removed element or -1.
+   *
+   * @author Avinash Kumar
+   *
+   */
   removeElement(element) {
     let current = this.head;
     let prev = null;
@@ -91,6 +124,14 @@ class LinkedList {
     return -1;
   }
 
+  /**
+   * Check list is empty or not.
+   *
+   * @returns Returns boolean value.
+   *
+   * @author Avinash Kumar
+   *
+   */
   isEmpty() {
     return this.size == 0;
   }
@@ -99,23 +140,39 @@ class LinkedList {
     return this.size;
   }
 
-  printList(){
+  /**
+   * Returns all elements as array.
+   *
+   * @returns Returns Array of elements
+   *
+   * @author Avinash Kumar
+   */
+  printList() {
     let list = [];
     let current = this.head;
-    while(current != null){      
+    while (current != null) {
       list.push(current.element);
       current = current.next;
     }
-    
+
     return list;
   }
 
-  indexOf(element){
+  /**
+   * Return index of specified element
+   *
+   * @param {} element Element that need to searched.
+   *
+   * @returns {number} Returns index of specified element.
+   * 
+   * @author Avinash Kumar
+   */
+  indexOf(element) {
     let index = -1;
     let currentIndex = 0;
     let current = this.head;
-    while(current != null){      
-      if(current.element == element) {
+    while (current != null) {
+      if (current.element == element) {
         index = currentIndex;
         break;
       }
@@ -124,5 +181,7 @@ class LinkedList {
     }
     return index;
   }
-
 }
+
+
+let obj = new LinkedList();
