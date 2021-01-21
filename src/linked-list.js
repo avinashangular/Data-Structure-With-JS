@@ -5,7 +5,7 @@ class Nodes {
    * @param {} element Element to be added.
    *
    * @returns {Nodes} Return Node instance.
-   * 
+   *
    * @author Avinash Kumar
    */
   constructor(element) {
@@ -19,7 +19,7 @@ class LinkedList {
    * Create an instance of Linked List.
    *
    * @returns {LinkedList} Returns LinkedList Instance.
-   * 
+   *
    * @author Avinash Kumar
    */
   constructor() {
@@ -154,9 +154,9 @@ class LinkedList {
 
   /**
    * Get size of Linked List
-   * 
+   *
    * @returns {number} Returns number.
-   * 
+   *
    * @author Avinash Kumar
    */
   get size_of_list() {
@@ -204,5 +204,52 @@ class LinkedList {
     }
     return index;
   }
+
+  /**
+   * Used to swap elements
+   *
+   * @param {element} element_1 First Element.
+   * @param {element} element_2 Second Element.
+   *
+   * @returns {boolean} Returns Boolean value
+   *
+   * @author Avinash Kumar
+   */
+  swapElement(element_1, element_2) {
+    if (element_1 == element_2) {
+      return;
+    }
+
+    let element_1Ref = null;
+    let element_2Ref = null;
+    let current = this.head;
+    while (current != null) {
+      if (current.element == element_1) {
+        element_1Ref = current;
+      }
+      if (current.element == element_2) {
+        element_2Ref = current;
+      }
+      current = current.next;
+    }
+
+    if (element_1Ref != null && element_2Ref != null) {
+      
+      let temp = element_1Ref.element;
+      element_1Ref.element = element_2Ref.element;
+      element_2Ref.element = temp;
+      return true;
+    }
+    return false;
+  }
 }
 
+
+let obj = new LinkedList();
+obj.add(10);
+obj.add(20);
+obj.add(30);
+obj.add(40);
+obj.add(50);
+
+console.log(obj.printList());
