@@ -242,14 +242,7 @@ class LinkedList {
     }
     return false;
   }
+
+  
 }
 
-
-let obj = new LinkedList();
-obj.add(10);
-obj.add(20);
-obj.add(30);
-obj.add(40);
-obj.add(50);
-
-console.log(obj.printList());
