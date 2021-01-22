@@ -1,5 +1,10 @@
 import { Stack } from "../../src/stack.js";
-
+/**
+ * Used to Check for balanced parentheses in an expression.
+ * @param {string} str Input string.
+ * @returns {boolean} Returns boolean value.
+ * @author Avinash Kumar
+ */
 function ParenthesisChecker(str) {
   if (str.trim() == "") {
     return false;
