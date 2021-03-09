@@ -98,6 +98,55 @@ class Array {
     this.#arr = tempArray;
     return this.#indexCounter;
   }
+
+  /**
+   * Used Slice out elements from array in given range.
+   * @param {number} start Start index to slice
+   * @param {number} end End index to slice
+   * @returns {Array} Returns sliced array.
+   * @author Avinash Kumar
+   */
+  slice(start, end) {
+    if (start < 0) {
+      start = this.#arr.length + start;
+    }
+    if (end < 0) {
+      end = this.#arr.length + end;
+    }
+    let slicedArr = new Array();
+    for (let i = start; i < end; i++) {
+      slicedArr.push(this.#arr[i]);
+    }
+    return slicedArr.#arr;
+  }
+
+  /**
+   * Used for add, replace and remove elements from source array.
+   * @param {number} index Used to pass number to specify index position.
+   * @param {number} count Used to pass number of element to be replaced.
+   * @param {any} element Pass element that need to be addeed.
+   * @author Avinash Kumar
+   */
+  splice(index, count, element) {
+    if (index >= this.length()) {
+        this.push(element);
+        return;
+    }
+    let temp = new Array();
+    for (let i = 0; i < this.length(); i++) {
+      if (i == index) {
+        temp.push(element);
+      }
+      if (i >= index + count || i < index) {
+        temp.push(this.#arr[i]);
+      }
+    }
+    this.#arr = temp.#arr;
+  }
 }
+
+let arrObj = new Array([10, 20, 30, 40, 50]);
+arrObj.splice(5, 0, 5);
+console.log(arrObj);
 
 export { Array };

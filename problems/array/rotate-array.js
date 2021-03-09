@@ -39,7 +39,24 @@ function RotateArray_method_two(arr, d){
     return arry;
 }
 
-let rotatedArray = RotateArray_method_two([10,20,30,40,50],2);
-console.log(rotatedArray);
+/**
+ * Array rotation using block swap algoithm.
+ * @param {Array} arr Source array.
+ * @param {number} d Number of element thar is need to be rotate.
+ * @returns {Array} Returns New Array
+ * @author Aviansh Kumar
+ */
+function RotateArray_method_three(arr, d){
+    let tempArray = new Array(arr);
+    let A = tempArray.slice(0,d);
+    let B = tempArray.slice(d, tempArray.length);
+    
+    while(A.length != B.length){
+        if(A.length < B.length){
+            let Bl = B.slice(0, A.length);
+            let Br = B.slice(A.length, B.length);
+        }
+    }
+}
 
 export { RotateArray_method_one, RotateArray_method_two};

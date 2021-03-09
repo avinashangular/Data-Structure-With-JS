@@ -1,1 +1,1 @@
-import { RotateArray } from './rotate-array.js';
+import { RotateArray_method_one, RotateArray_method_two } from './rotate-array.js';
